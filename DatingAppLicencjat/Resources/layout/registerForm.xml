@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_weight="0.15"
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+
+        <ImageView
+            android:layout_centerInParent="true"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/coffee"/>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight="0.50"
+        android:layout_height="0dp">
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/AppGreen"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:theme="@style/AppGreen"
+                android:textSize="18sp"
+                android:id="@+id/nameRegisterText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Imię"
+                android:inputType="text"
+                android:imeOptions="actionNext"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/AppGreen"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:theme="@style/AppGreen"
+                android:textSize="18sp"
+                android:id="@+id/emailRegisterText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/AppGreen"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:theme="@style/AppGreen"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:id="@+id/passwordRegisterText"
+                android:layout_height="wrap_content"
+                android:hint="Hasło"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:theme="@style/AppGreen"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+            <EditText
+                android:theme="@style/AppGreen"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:id="@+id/paswordRepeatRegisterText"
+                android:layout_height="wrap_content"
+                android:hint="Powtórz hasło"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
+            />       
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:text="Zarejestruj się"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"/>
+        
+            <TextView
+                android:id="@+id/clickAlreadyRegistered"
+                android:layout_marginTop="20dp"
+                android:textSize="16sp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:text="Masz już konto? Zaloguj się"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            
+    </LinearLayout>
+</LinearLayout>
