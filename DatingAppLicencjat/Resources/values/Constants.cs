@@ -20,6 +20,12 @@ namespace DatingAppLicencjat.Resources.values
         public static string InsertNewUserQuery = $"insert into users (username, password_salt, password, email, created_at) values (@username, @password_salt, @password, @email, @timestamp)";
 
         #endregion
+
+        #region MYSQL CHECK IF EMAIL ALREADY REGISTERED
+
+        public static string checkIfAlreadyRegisteredQuery = $"select * from users WHERE email LIKE @email";
+
+        #endregion
     }
 
 }

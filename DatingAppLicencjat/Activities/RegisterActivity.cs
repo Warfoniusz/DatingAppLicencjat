@@ -6,7 +6,6 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 using DatingAppLicencjat.Resources.values;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,10 +65,27 @@ namespace DatingAppLicencjat.Activities
                 }
 
                 MySqlConnection conn = new MySqlConnection(Constants.connectionString);
+                MySqlDataReader reader;
+                MySqlCommand checkEmailCommand = new MySqlCommand(Constants.checkIfAlreadyRegisteredQuery, conn);
+                checkEmailCommand.Parameters.Add("@email", MySqlDbType.VarChar).Value = email.Text;
                 conn.Open();
+                reader = checkEmailCommand.ExecuteReader();
+                reader.Read();
+                if (reader.HasRows)
+                {
+                    Toast.MakeText(this, "Istnieje już konto z takim adresem email.", ToastLength.Short).Show();
+                    reader.Close();
+                    return;
+                }
+                else
+                {
+                    reader.Close();
+                }
+
 
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = conn;
+
 
                 cmd.CommandText = Constants.InsertNewUserQuery;
                 cmd.Parameters.Add("@username", MySqlDbType.VarChar).Value = username.Text;
