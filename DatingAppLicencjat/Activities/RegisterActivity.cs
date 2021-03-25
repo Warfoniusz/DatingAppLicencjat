@@ -14,6 +14,9 @@ using MySqlConnector;
 using MySqlConnection = MySqlConnector.MySqlConnection;
 using MySqlCommand = MySqlConnector.MySqlCommand;
 using MySqlDbType = MySqlConnector.MySqlDbType;
+using System.Net.Http;
+using System.Net.Http.Headers;
+
 
 namespace DatingAppLicencjat.Activities
 {
@@ -64,6 +67,21 @@ namespace DatingAppLicencjat.Activities
                     return;
                 }
 
+                HttpClient client = new HttpClient();
+                var uri = new Uri(string.Format("https://licencjatapi.azurewebsites.net/api/register?fullName=" + username.Text + "&password=" + password.Text + "&email=" + email.Text));
+                HttpResponseMessage response;
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                response = await client.GetAsync(uri);
+
+                if(response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                {
+                    Toast.MakeText(this, "Rejestracja pomyślna.", ToastLength.Short).Show();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Istnieje już konto z podanym mailem.", ToastLength.Short).Show();
+                }
+                /*
                 MySqlConnection conn = new MySqlConnection(Constants.connectionString);
                 MySqlDataReader reader;
                 MySqlCommand checkEmailCommand = new MySqlCommand(Constants.checkIfAlreadyRegisteredQuery, conn);
@@ -96,6 +114,7 @@ namespace DatingAppLicencjat.Activities
                 await cmd.ExecuteNonQueryAsync();
 
                 conn.Close();
+                */
             }
             catch (Exception)
             {

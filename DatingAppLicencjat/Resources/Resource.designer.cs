@@ -3577,10 +3577,10 @@ namespace DatingAppLicencjat
 			public const int parent_matrix = 2131230836;
 			
 			// aapt resource value: 0x7F080075
-			public const int passwordRegisterText = 2131230837;
+			public const int passwordLoginText = 2131230837;
 			
 			// aapt resource value: 0x7F080076
-			public const int paswordLoginText = 2131230838;
+			public const int passwordRegisterText = 2131230838;
 			
 			// aapt resource value: 0x7F080077
 			public const int paswordRepeatRegisterText = 2131230839;

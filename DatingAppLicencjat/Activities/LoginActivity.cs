@@ -18,7 +18,8 @@ namespace DatingAppLicencjat.Activities
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.login);
-            // Create your application here
+            
+          
         }
     }
 }
