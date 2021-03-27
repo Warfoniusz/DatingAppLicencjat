@@ -16,7 +16,8 @@ using MySqlCommand = MySqlConnector.MySqlCommand;
 using MySqlDbType = MySqlConnector.MySqlDbType;
 using System.Net.Http;
 using System.Net.Http.Headers;
-
+using Newtonsoft.Json;
+using System.Threading.Tasks;
 
 namespace DatingAppLicencjat.Activities
 {
@@ -67,13 +68,22 @@ namespace DatingAppLicencjat.Activities
                     return;
                 }
 
-                HttpClient client = new HttpClient();
-                var uri = new Uri(string.Format("https://licencjatapi.azurewebsites.net/api/register?fullName=" + username.Text + "&password=" + password.Text + "&email=" + email.Text));
-                HttpResponseMessage response;
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                response = await client.GetAsync(uri);
+                var data = new { fullName = username.Text, password = password.Text, email = email.Text };
+                var content = JsonConvert.SerializeObject(data);
+                var buffer = Encoding.UTF8.GetBytes(content);
+                var byteContent = new ByteArrayContent(buffer);
+                byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                HttpClientHandler clientHandler = new HttpClientHandler();
+                clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
 
-                if(response.StatusCode == System.Net.HttpStatusCode.Accepted)
+                // Pass the handler to httpclient(from you are calling api)
+                HttpClient client = new HttpClient(clientHandler);
+                string url = "https://licencjatapi.azurewebsites.net/api/login/test";
+                var uri = new Uri(url);
+                var result = await client.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json"));
+
+
+                if(result.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     Toast.MakeText(this, "Rejestracja pomyślna.", ToastLength.Short).Show();
                 }
