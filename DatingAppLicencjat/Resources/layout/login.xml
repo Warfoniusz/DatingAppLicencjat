@@ -30,9 +30,9 @@
             android:theme="@style/AppGreen"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
-            android:id="@+id/emailLoginText"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/emailLoginText"
                 android:theme="@style/AppGreen"
                 android:textSize="18sp"
                 android:layout_width="match_parent"
@@ -45,10 +45,10 @@
         <android.support.design.widget.TextInputLayout
             android:theme="@style/AppGreen"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:id="@+id/passwordLoginText"
+            android:layout_marginTop="10dp"           
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/passwordLoginText"
                 android:theme="@style/AppGreen"
                 android:textSize="18sp"
                 android:layout_width="match_parent"
@@ -69,7 +69,7 @@
             android:textAllCaps="false"/>
 
         <TextView
-            android:id="@+id/clickToRegisterLogin"
+            android:id="@+id/clickToRegisterText"
             android:layout_marginTop="20dp"
             android:textSize="16sp"
             android:gravity="center"

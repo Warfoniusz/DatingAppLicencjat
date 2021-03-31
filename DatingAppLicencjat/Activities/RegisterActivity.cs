@@ -21,13 +21,14 @@ using System.Threading.Tasks;
 
 namespace DatingAppLicencjat.Activities
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Theme = "@style/AppTheme", MainLauncher = false)]
     public class RegisterActivity : AppCompatActivity
     {
         EditText username;
         EditText password;
         EditText email;
         EditText passwordConfirm;
+        TextView goBackToLogin;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -37,9 +38,17 @@ namespace DatingAppLicencjat.Activities
             password = FindViewById<EditText>(Resource.Id.passwordRegisterText);
             passwordConfirm = FindViewById<EditText>(Resource.Id.paswordRepeatRegisterText);
             email = FindViewById<EditText>(Resource.Id.emailRegisterText);
+            TextView goBackToLogin = FindViewById<TextView>(Resource.Id.clickAlreadyRegistered);
             Button regButton = FindViewById<Button>(Resource.Id.registerButton);
+            goBackToLogin.Click += GoBackToLogin_Click;
             regButton.Click += RegButton_Click;
             
+        }
+
+        private void GoBackToLogin_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(LoginActivity));
+            Finish();
         }
 
         private async void RegButton_Click(object sender, EventArgs e)
@@ -86,6 +95,8 @@ namespace DatingAppLicencjat.Activities
                 if(result.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     Toast.MakeText(this, "Rejestracja pomyślna.", ToastLength.Short).Show();
+                    StartActivity(typeof(LoginActivity));
+                    Finish();
                 }
                 else
                 {
