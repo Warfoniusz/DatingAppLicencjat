@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+
+             android:id="@+id/toolbar"
+             android:background="@color/colorPrimaryDark"
+             android:layout_width="match_parent"
+             android:layout_height="?android:attr/actionBarSize"/>
+
+    <LinearLayout
+        android:padding="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+
+            <ImageView
+                android:id="@+id/newPostIcon"
+                android:layout_centerInParent="true"
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:gravity="center"
+            android:text="Tytuł ogłoszenia"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+         <EditText
+            android:hint="Podaj krótki i zrozumiały tytuł"
+            android:padding="5dp"
+            android:gravity="start"
+            android:id="@+id/newPostTitle"
+            android:background="#dadada"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:gravity="center"
+            android:text="Opis Twojego ogłoszenia"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:hint="Opis będzie widoczny po wyświetleniu przez innych użytkowników"
+            android:padding="5dp"
+            android:gravity="start"
+            android:id="@+id/newPostDescription"
+            android:background="#dadada"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"/>
+        <TextView
+            android:gravity="center"
+            android:text="Wybierz swoją lokalizację"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:hint="Podaj poprawną nazwę miasta"
+            android:padding="5dp"
+            android:gravity="start"
+            android:id="@+id/newPostCity"
+            android:background="#dadada"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:textColor="@color/colorPrimaryDark"
+                android:textAllCaps="false"
+                android:text="Dodaj Ogłoszenie"
+                android:layout_marginBottom="20dp"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/newPostSubmitBTN"
+                android:background="#dadade"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

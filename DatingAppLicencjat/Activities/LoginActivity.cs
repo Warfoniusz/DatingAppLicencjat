@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using DatingAppLicencjat.Resources.values;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,14 @@ namespace DatingAppLicencjat.Activities
         EditText login;
         EditText password;
         TextView goToRegisterText;
+
+        public class UserRetrieved
+        {
+            public string fullName { get; set; }
+            public string password { get; set; }
+            public string email { get; set; }
+            public string userId { get; set; }
+        }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -76,8 +85,11 @@ namespace DatingAppLicencjat.Activities
                 HttpClient client = new HttpClient(clientHandler);
                 var result = await client.SendAsync(request);
 
-                if (result.StatusCode == System.Net.HttpStatusCode.Accepted)
+                if (result.StatusCode == System.Net.HttpStatusCode.OK)
                 {
+                    var contentBody = await result.Content.ReadAsStringAsync();
+                    UserRetrieved userretrieved = JsonConvert.DeserializeObject<UserRetrieved>(contentBody);
+                    Constants.fullname = userretrieved.fullName;
                     Toast.MakeText(this, "Zalogowano pomyślnie.", ToastLength.Short).Show();
                     StartActivity(typeof(MainActivity));
                     Finish();
