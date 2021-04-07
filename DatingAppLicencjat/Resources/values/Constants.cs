@@ -14,6 +14,9 @@ namespace DatingAppLicencjat.Resources.values
     public static class Constants
     {
         public static string fullname = "";
+
+        public static int userId;
+
         public static string connectionString = "server=185.243.53.232;port=3306;uid=wurf;pwd=GoxFxCRul8N0p2dl;database=wurf";
 
         #region MYSQL INSERT NEW USER QUERY

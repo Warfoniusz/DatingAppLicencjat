@@ -90,6 +90,7 @@ namespace DatingAppLicencjat.Activities
                     var contentBody = await result.Content.ReadAsStringAsync();
                     UserRetrieved userretrieved = JsonConvert.DeserializeObject<UserRetrieved>(contentBody);
                     Constants.fullname = userretrieved.fullName;
+                    Constants.userId = Int32.Parse(userretrieved.userId);
                     Toast.MakeText(this, "Zalogowano pomyślnie.", ToastLength.Short).Show();
                     StartActivity(typeof(MainActivity));
                     Finish();
