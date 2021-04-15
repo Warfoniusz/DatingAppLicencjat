@@ -38,7 +38,7 @@ namespace DatingAppLicencjat.Adapters
             var holder = viewHolder as Adapter1ViewHolder;
             //holder.TextView.Text = items[position];
             holder.usernameTextView.Text = item.username;
-            holder.postBodyTextView.Text = item.description;
+            holder.postBodyTextView.Text = item.title;
             holder.cityTextView.Text = item.city;
         }
 
@@ -73,4 +73,6 @@ namespace DatingAppLicencjat.Adapters
         public View View { get; set; }
         public int Position { get; set; }
     }
+
+
 }

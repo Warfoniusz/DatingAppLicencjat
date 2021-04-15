@@ -3901,16 +3901,25 @@ namespace DatingAppLicencjat
 			public const int userPostNickname = 2131230934;
 			
 			// aapt resource value: 0x7F0800D7
-			public const int view_offset_helper = 2131230935;
+			public const int viewPostCity = 2131230935;
 			
 			// aapt resource value: 0x7F0800D8
-			public const int visible = 2131230936;
+			public const int viewPostDescription = 2131230936;
 			
 			// aapt resource value: 0x7F0800D9
-			public const int withText = 2131230937;
+			public const int viewPostTitle = 2131230937;
 			
 			// aapt resource value: 0x7F0800DA
-			public const int wrap_content = 2131230938;
+			public const int view_offset_helper = 2131230938;
+			
+			// aapt resource value: 0x7F0800DB
+			public const int visible = 2131230939;
+			
+			// aapt resource value: 0x7F0800DC
+			public const int withText = 2131230940;
+			
+			// aapt resource value: 0x7F0800DD
+			public const int wrap_content = 2131230941;
 			
 			static Id()
 			{
@@ -4217,6 +4226,9 @@ namespace DatingAppLicencjat
 			
 			// aapt resource value: 0x7F0B0045
 			public const int userPost = 2131427397;
+			
+			// aapt resource value: 0x7F0B0046
+			public const int viewPost = 2131427398;
 			
 			static Layout()
 			{

@@ -13,6 +13,8 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using DatingAppLicencjat.Resources.values;
+using Android.Content;
 
 namespace DatingAppLicencjat
 {
@@ -67,8 +69,9 @@ namespace DatingAppLicencjat
                 {
                     postModel newPost = new postModel();
 
+                    newPost.description = post.postDescription;
                     newPost.username = post.fullName;
-                    newPost.description = post.postTitle;
+                    newPost.title = post.postTitle;
                     newPost.city = post.postCity;
                     postList.Add(newPost);
                 }
@@ -83,12 +86,23 @@ namespace DatingAppLicencjat
                 postRecyclerView.SetLayoutManager(new Android.Support.V7.Widget.LinearLayoutManager(postRecyclerView.Context));
                 postAdapter = new PostAdapter(postList);
                 postRecyclerView.SetAdapter(postAdapter);
+                postAdapter.ItemClick += PostAdapter_ItemClick;
             }
             
 
         }
 
-
-        
+        private void PostAdapter_ItemClick(object sender, Adapter1ClickEventArgs e)
+        {
+            postModel clickedPost = new postModel();
+            clickedPost.city = postList[e.Position].city;
+            clickedPost.description = postList[e.Position].description;
+            clickedPost.username = postList[e.Position].username;
+            int postId = postList[e.Position].id;
+            int ownerId = postList[e.Position].creatorId;
+            Intent intent = new Intent(this, typeof(ViewPostActivity));
+            intent.PutExtra("data", JsonConvert.SerializeObject(clickedPost));
+            this.StartActivity(intent);
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace DatingAppLicencjat.Models
         public string username { get; set; }
         public int id { get; set; }
         public int creatorId { get; set; }
+        public string title { get; set; }
         public string description { get; set; }
         public string city { get; set; }
         public DateTime postCreationDate { get; set; }
