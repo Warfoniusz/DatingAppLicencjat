@@ -18,6 +18,8 @@ namespace DatingAppLicencjat.Models
         public string postDescription { get; set; }
         public string postCity { get; set; }
         public int userId { get; set; }
+
+        public int postId { get; set; }
     }
 
 }

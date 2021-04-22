@@ -26,18 +26,26 @@ namespace DatingAppLicencjat
         List<postModel> postList;
         RelativeLayout layoutStatus;
         ImageView newPost;
+        ImageView watchedPosts;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            // Set our view from the "main" layout resource
+            // Set our view from the "main" layout resource        
             SetContentView(Resource.Layout.activity_main);
+            watchedPosts = (ImageView)FindViewById(Resource.Id.watchedPostsOnMainView);
             postRecyclerView = (RecyclerView)FindViewById(Resource.Id.postRecycleView);
             layoutStatus = (RelativeLayout)FindViewById(Resource.Id.layoutStatus);
             newPost = (ImageView)FindViewById(Resource.Id.addNewImageOnMainView);
             newPost.Click += NewPost_Click;
+            watchedPosts.Click += WatchedPosts_Click;
             GetPostList();
 
+        }
+
+        private void WatchedPosts_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(WatchedPostsActivity));
         }
 
         private void NewPost_Click(object sender, EventArgs e)
@@ -68,7 +76,7 @@ namespace DatingAppLicencjat
                 foreach (var post in posts)
                 {
                     postModel newPost = new postModel();
-
+                    newPost.id = post.postId;
                     newPost.description = post.postDescription;
                     newPost.username = post.fullName;
                     newPost.title = post.postTitle;
@@ -86,6 +94,7 @@ namespace DatingAppLicencjat
                 postRecyclerView.SetLayoutManager(new Android.Support.V7.Widget.LinearLayoutManager(postRecyclerView.Context));
                 postAdapter = new PostAdapter(postList);
                 postRecyclerView.SetAdapter(postAdapter);
+                Constants.posts = postList;
                 postAdapter.ItemClick += PostAdapter_ItemClick;
             }
             
@@ -98,6 +107,7 @@ namespace DatingAppLicencjat
             clickedPost.city = postList[e.Position].city;
             clickedPost.description = postList[e.Position].description;
             clickedPost.username = postList[e.Position].username;
+            clickedPost.id = postList[e.Position].id;
             int postId = postList[e.Position].id;
             int ownerId = postList[e.Position].creatorId;
             Intent intent = new Intent(this, typeof(ViewPostActivity));

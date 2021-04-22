@@ -62,6 +62,7 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\WatchedPostsActivity.cs" />
     <Compile Include="Activities\ViewPostActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\NewPostActivity.cs" />
@@ -166,6 +167,14 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\viewPost.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\checkPosts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\watchedPosts.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

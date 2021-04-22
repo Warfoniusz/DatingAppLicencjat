@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using DatingAppLicencjat.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace DatingAppLicencjat.Resources.values
 {
     public static class Constants
     {
+        public static List<postModel> posts;
+
         public static string fullname = "";
 
         public static int userId;

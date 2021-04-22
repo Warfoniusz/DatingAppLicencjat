@@ -102,40 +102,7 @@ namespace DatingAppLicencjat.Activities
                 {
                     Toast.MakeText(this, "Istnieje już konto z podanym mailem.", ToastLength.Short).Show();
                 }
-                /*
-                MySqlConnection conn = new MySqlConnection(Constants.connectionString);
-                MySqlDataReader reader;
-                MySqlCommand checkEmailCommand = new MySqlCommand(Constants.checkIfAlreadyRegisteredQuery, conn);
-                checkEmailCommand.Parameters.Add("@email", MySqlDbType.VarChar).Value = email.Text;
-                conn.Open();
-                reader = checkEmailCommand.ExecuteReader();
-                reader.Read();
-                if (reader.HasRows)
-                {
-                    Toast.MakeText(this, "Istnieje już konto z takim adresem email.", ToastLength.Short).Show();
-                    reader.Close();
-                    return;
-                }
-                else
-                {
-                    reader.Close();
-                }
-
-
-                MySqlCommand cmd = new MySqlCommand();
-                cmd.Connection = conn;
-
-
-                cmd.CommandText = Constants.InsertNewUserQuery;
-                cmd.Parameters.Add("@username", MySqlDbType.VarChar).Value = username.Text;
-                cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password.Text;
-                cmd.Parameters.Add("@password_salt", MySqlDbType.VarChar).Value = password.Text;
-                cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email.Text;
-                cmd.Parameters.Add("@timestamp", MySqlDbType.DateTime).Value = dtNow;
-                await cmd.ExecuteNonQueryAsync();
-
-                conn.Close();
-                */
+                
             }
             catch (Exception)
             {
