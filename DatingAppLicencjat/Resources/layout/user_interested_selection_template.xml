@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    xmlns:tools="http://schemas.android.com/tools"
+                                    android:layout_width="172dp"
+                                    app:cardElevation="3dp"
+                                    app:cardBackgroundColor="#C1CAD6"
+                                    android:layout_marginTop="20dp"
+                                    android:layout_height="185dp">
+
+
+  <LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Refractored.Controls.CircleImageView
+      android:id="@+id/user_photo_in_interested_choice"
+      android:layout_marginTop="10dp"
+      android:layout_gravity="center_horizontal"
+      android:src="@drawable/photoplaceholder"
+      app:civ_border_color="#0D1321"
+      app:civ_border_width="2dp"
+      android:layout_width="80dp"
+      android:layout_height="80dp" />
+
+    <TextView
+      android:textSize="36px"
+      android:id="@+id/username_text_in_interested_choice"
+      android:layout_marginTop="10dp"
+      android:gravity="center"
+      android:textStyle="bold"
+      android:text="Nazwa użytkownika"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content" />
+
+
+    <RelativeLayout
+      android:layout_marginTop="10dp"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+
+      <ImageView
+        android:id="@+id/deny_in_interested_choice"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/deny_icon"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+      <ImageView
+        android:id="@+id/accept_in_interested_choice"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/accept_icon"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+
+    </RelativeLayout>
+
+  </LinearLayout>
+</android.support.v7.widget.CardView>

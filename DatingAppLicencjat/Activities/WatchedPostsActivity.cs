@@ -17,8 +17,8 @@ using System.Text;
 
 namespace DatingAppLicencjat.Activities
 {
-    [Activity(Label = "Activity1")]
-    public class WatchedPostsActivity : Activity
+    [Activity(Label = "Activity1", Theme = "@style/AppTheme")]
+    public class WatchedPostsActivity : Android.Support.V7.App.AppCompatActivity
     {
         List<postModel> postList;
         RecyclerView postRecyclerView;
@@ -60,6 +60,7 @@ namespace DatingAppLicencjat.Activities
                     newPost.username = post.fullName;
                     newPost.title = post.postTitle;
                     newPost.city = post.postCity;
+                    newPost.acceptanceStatus = post.acceptanceStatus;
                     postList.Add(newPost);
                 }
             }

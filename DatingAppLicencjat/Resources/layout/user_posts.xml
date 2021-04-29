@@ -15,7 +15,7 @@
         android:layout_height="match_parent">
 
         <TextView
-                android:text="Obserwowane ogłoszenia"
+                android:text="Twoje ogłoszenia"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -29,12 +29,12 @@
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
-        android:background="#F6F0ED"
+      android:background="#F6F0ED"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/postRecycleViewOnWatched"
+            android:id="@+id/post_recycler_on_user_posts"
             android:scrollbars="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"

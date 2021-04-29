@@ -8,7 +8,7 @@
 
     <android.support.v7.widget.Toolbar
              android:id="@+id/toolbar"
-             android:background="@color/colorPrimaryDark"
+             android:background="@color/colorPrimary"
                          android:layout_width="match_parent"
                          android:layout_height="?android:attr/actionBarSize">
 
@@ -28,8 +28,17 @@
             </TextView>
 
             <ImageView
+                android:id="@+id/userPostsOnMainView"
+                android:src="@drawable/checkposts"
+                android:layout_marginRight="60dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <ImageView
                 android:id="@+id/watchedPostsOnMainView"
-                android:src="@drawable/checkPosts"
+                android:src="@drawable/star"
                 android:layout_marginLeft="60dp"
                 android:layout_centerVertical="true"
                 android:layout_width="30dp"
@@ -55,6 +64,7 @@
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
+        android:background="#F6F0ED"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

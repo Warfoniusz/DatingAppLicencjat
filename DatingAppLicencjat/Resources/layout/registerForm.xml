@@ -1,105 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#F6F0ED"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_weight="0.15"
+
+
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:src="@drawable/coffee" />
+
+
+    <ScrollView
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="1dp">
+        android:id="@+id/scrollView2">
 
-        <ImageView
-            android:layout_centerInParent="true"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:src="@drawable/coffee"/>
-
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_weight="0.50"
-        android:layout_height="0dp">
-
-        <android.support.design.widget.TextInputLayout
-            android:theme="@style/AppGreen"
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-            <EditText
-                android:theme="@style/AppGreen"
-                android:textSize="18sp"
-                android:id="@+id/nameRegisterText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Imię"
-                android:inputType="text"
-                android:imeOptions="actionNext"/>
-        </android.support.design.widget.TextInputLayout>
+            android:layout_weight="0.50"
+            android:layout_height="0dp"
+            android:id="@+id/linearLayout2">
 
-        <android.support.design.widget.TextInputLayout
-            android:theme="@style/AppGreen"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-            <EditText
+            <android.support.design.widget.TextInputLayout
                 android:theme="@style/AppGreen"
-                android:textSize="18sp"
-                android:id="@+id/emailRegisterText"
                 android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:imeOptions="actionNext"/>
-        </android.support.design.widget.TextInputLayout>
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:id="@+id/textInputLayout8">
+                <EditText
+                    android:theme="@style/AppGreen"
+                    android:textSize="18sp"
+                    android:id="@+id/nameRegisterText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Imię"
+                    android:inputType="text"
+                    android:imeOptions="actionNext" />
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:theme="@style/AppGreen"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-            <EditText
+            <android.support.design.widget.TextInputLayout
                 android:theme="@style/AppGreen"
-                android:textSize="18sp"
                 android:layout_width="match_parent"
-                android:id="@+id/passwordRegisterText"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:hint="Hasło"
-                android:inputType="textPassword"
-                android:imeOptions="actionNext"/>
-        </android.support.design.widget.TextInputLayout>
+                android:id="@+id/textInputLayout9">
+                <EditText
+                    android:theme="@style/AppGreen"
+                    android:textSize="18sp"
+                    android:id="@+id/emailRegisterText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext" />
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:theme="@style/AppGreen"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-            <EditText
+            <android.support.design.widget.TextInputLayout
                 android:theme="@style/AppGreen"
-                android:textSize="18sp"
                 android:layout_width="match_parent"
-                android:id="@+id/paswordRepeatRegisterText"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
-                android:hint="Powtórz hasło"
-                android:inputType="textPassword"
-                android:imeOptions="actionDone"
-            />       
-        </android.support.design.widget.TextInputLayout>
+                android:id="@+id/textInputLayout2">
+                <EditText
+                    android:theme="@style/AppGreen"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/passwordRegisterText"
+                    android:layout_height="wrap_content"
+                    android:hint="Hasło"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionNext" />
+            </android.support.design.widget.TextInputLayout>
 
-        <Button
-            android:id="@+id/registerButton"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="60dp"
-            android:text="Zarejestruj się"
-            android:layout_width="300dp"
+            <android.support.design.widget.TextInputLayout
+                android:theme="@style/AppGreen"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textInputLayout10">
+                <EditText
+                    android:theme="@style/AppGreen"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/paswordRepeatRegisterText"
+                    android:layout_height="wrap_content"
+                    android:hint="Powtórz hasło"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:theme="@style/AppGreen"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textInputLayout11">
+                <EditText
+                    android:theme="@style/AppGreen"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/cityRegisterText"
+                    android:layout_height="wrap_content"
+                    android:hint="Miejsce zamieszkania (najbliższe miasto)"
+                    android:inputType="text"
+                    android:imeOptions="actionNext" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:theme="@style/AppGreen"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/textInputLayout12">
+                <EditText
+                    android:theme="@style/AppGreen"
+                    android:textSize="18sp"
+                    android:layout_width="match_parent"
+                    android:id="@+id/userDescriptionRegisterText"
+                    android:layout_height="wrap_content"
+                    android:hint="Podaj krótki opis siebie"
+                    android:inputType="text"
+                    android:imeOptions="actionNext" />
+            </android.support.design.widget.TextInputLayout>
+
+
+          <TextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:textAllCaps="false"/>
-        
+            android:layout_marginTop="10dip"
+            android:text="@string/planet_prompt"
+          />
+          <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/planet_prompt"
+          />
+
+          <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:text="Wybierz swoje zdjęcie profilowe"
+          />
+
+            <ImageView
+                android:id="@+id/user_profile_photo_register"
+                android:src="@drawable/photoplaceholder"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:text="Zarejestruj się"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false" />
+
             <TextView
                 android:id="@+id/clickAlreadyRegistered"
                 android:layout_marginTop="20dp"
@@ -107,9 +180,13 @@
                 android:gravity="center"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
+                android:layout_marginBottom="50dp"
                 android:text="Masz już konto? Zaloguj się"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            
-    </LinearLayout>
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </LinearLayout>

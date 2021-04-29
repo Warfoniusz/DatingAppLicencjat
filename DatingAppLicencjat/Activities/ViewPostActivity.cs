@@ -1,7 +1,10 @@
 ﻿using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V4.Content;
+using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using DatingAppLicencjat.Models;
@@ -13,6 +16,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using Refractored.Controls;
 
 namespace DatingAppLicencjat.Activities
 {
@@ -22,6 +26,7 @@ namespace DatingAppLicencjat.Activities
         public postModel clickedPost = new postModel();
         TextView postTitle, postDescription, postCity;
         Button BTNInterested;
+        private CircleImageView userPhoto;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -31,17 +36,23 @@ namespace DatingAppLicencjat.Activities
             postDescription = (TextView)FindViewById(Resource.Id.viewPostDescription);
             postCity = (TextView)FindViewById(Resource.Id.viewPostCity);
             BTNInterested = (Button)FindViewById(Resource.Id.viewPostButtonInterested);
+            userPhoto = (CircleImageView) FindViewById(Resource.Id.user_photo_in_view_post);
             BTNInterested.Click += BTNInterested_Click;
 
+            Byte[] bitmapData = Convert.FromBase64String(Constants.user_photo_in_view_post);
+            System.IO.MemoryStream ms = new System.IO.MemoryStream(bitmapData);
+            Android.Graphics.Bitmap bitImage = Android.Graphics.BitmapFactory.DecodeStream(ms);
+            userPhoto.SetImageBitmap(bitImage);
             postCity.Text = clickedPost.city;
             postTitle.Text = clickedPost.username;
             postDescription.Text = clickedPost.description;
 
         }
 
+
         private async void BTNInterested_Click(object sender, EventArgs e)
         {
-            var data = new { userId = Constants.userId, postId = clickedPost.id };
+            var data = new { userId = Constants.userId, postId = clickedPost.id, acceptanceStatus = "waiting" };
             string url = "https://licencjatapi.azurewebsites.net/api/GetInfo/clickInterested";
             var uri = new Uri(url);
             var content = JsonConvert.SerializeObject(data);

@@ -62,15 +62,22 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\InterestedUsersActivity.cs" />
+    <Compile Include="Activities\UserPostsActivity.cs" />
     <Compile Include="Activities\WatchedPostsActivity.cs" />
     <Compile Include="Activities\ViewPostActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\NewPostActivity.cs" />
     <Compile Include="Activities\RegisterActivity.cs" />
+    <Compile Include="Adapters\InterestedUsersAdapter.cs" />
     <Compile Include="Adapters\PostAdapter.cs" />
     <Compile Include="Activities\MainActivity.cs" />
+    <Compile Include="Models\postData.cs" />
     <Compile Include="Models\postRetrieved.cs" />
     <Compile Include="Models\postModel.cs" />
+    <Compile Include="Models\retrievedWatchedPostModel.cs" />
+    <Compile Include="Models\userProfileModel.cs" />
+    <Compile Include="Models\watchedPostModel.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\values\Constants.cs" />
@@ -121,8 +128,14 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Refractored.Controls.CircleImageView">
+      <Version>1.0.1</Version>
+    </PackageReference>
     <PackageReference Include="System.Net.Http">
       <Version>4.3.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>5.0.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3" />
     <PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3" />
@@ -139,9 +152,6 @@
     <AndroidResource Include="Resources\layout\login.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\coffee.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -177,6 +187,39 @@
     <AndroidResource Include="Resources\layout\watchedPosts.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\user_posts.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\user_interested_selection_template.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\photoplaceholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\interested_users.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\accept_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\deny_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\coffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\xml\file_paths.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

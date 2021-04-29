@@ -11,17 +11,14 @@ using System.Text;
 
 namespace DatingAppLicencjat.Models
 {
-    class postRetrieved
+    class retrievedWatchedPostModel
     {
         public string fullName { get; set; }
         public string postTitle { get; set; }
         public string postDescription { get; set; }
         public string postCity { get; set; }
         public int userId { get; set; }
-
         public int postId { get; set; }
         public string acceptanceStatus { get; set; }
-        public string user_photo_base64 { get; set; }
     }
-
 }

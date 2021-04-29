@@ -49,7 +49,6 @@ namespace DatingAppLicencjat.Activities
         private void GoToRegisterText_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(RegisterActivity));
-            Finish();
         }
 
         private async void LoginButton_Click(object sender, EventArgs e)

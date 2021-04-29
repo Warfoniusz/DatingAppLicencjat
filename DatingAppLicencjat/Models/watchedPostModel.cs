@@ -11,7 +11,7 @@ using System.Text;
 
 namespace DatingAppLicencjat.Models
 {
-    public class postModel
+    class watchedPostModel
     {
         public string username { get; set; }
         public int id { get; set; }
@@ -21,9 +21,6 @@ namespace DatingAppLicencjat.Models
         public string city { get; set; }
         public DateTime postCreationDate { get; set; }
         public string acceptanceStatus { get; set; }
-        public string user_photo_base64 { get; set; }
-
-
 
     }
 }

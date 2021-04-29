@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">DatingAppLicencjat</string>
     <string name="action_settings">Settings</string>
+    <string name="planet_prompt">Wybierz płeć</string>
+    <string-array name="sex_array">
+      <item>Kobieta</item>
+      <item>Mężczyzna</item>
+    </string-array>
 </resources>

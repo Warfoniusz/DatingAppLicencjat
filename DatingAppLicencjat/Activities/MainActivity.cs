@@ -27,20 +27,28 @@ namespace DatingAppLicencjat
         RelativeLayout layoutStatus;
         ImageView newPost;
         ImageView watchedPosts;
+        ImageView userPosts;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             // Set our view from the "main" layout resource        
             SetContentView(Resource.Layout.activity_main);
-            watchedPosts = (ImageView)FindViewById(Resource.Id.watchedPostsOnMainView);
-            postRecyclerView = (RecyclerView)FindViewById(Resource.Id.postRecycleView);
-            layoutStatus = (RelativeLayout)FindViewById(Resource.Id.layoutStatus);
-            newPost = (ImageView)FindViewById(Resource.Id.addNewImageOnMainView);
+            userPosts = (ImageView) FindViewById(Resource.Id.userPostsOnMainView);
+            watchedPosts = (ImageView) FindViewById(Resource.Id.watchedPostsOnMainView);
+            postRecyclerView = (RecyclerView) FindViewById(Resource.Id.postRecycleView);
+            layoutStatus = (RelativeLayout) FindViewById(Resource.Id.layoutStatus);
+            newPost = (ImageView) FindViewById(Resource.Id.addNewImageOnMainView);
+            userPosts.Click += UserPosts_Click;
             newPost.Click += NewPost_Click;
             watchedPosts.Click += WatchedPosts_Click;
             GetPostList();
+        }
 
+        private void UserPosts_Click(object sender, EventArgs e)
+        {
+            StartActivity(typeof(UserPostsActivity));
         }
 
         private void WatchedPosts_Click(object sender, EventArgs e)
@@ -51,15 +59,15 @@ namespace DatingAppLicencjat
         private void NewPost_Click(object sender, EventArgs e)
         {
             StartActivity(typeof(NewPostActivity));
+            Finish();
         }
 
         async void GetPostList()
         {
-            
             try
             {
                 postList = new List<postModel>();
-                string url = "https://licencjatapi.azurewebsites.net/api/getInfo/getPostList";
+                string url = "https://licencjatapi.azurewebsites.net/api/getInfo/getPostList/" + Constants.userId;
                 var uri = new Uri(url);
                 var request = new HttpRequestMessage
                 {
@@ -68,7 +76,10 @@ namespace DatingAppLicencjat
                 };
 
                 HttpClientHandler clientHandler = new HttpClientHandler();
-                clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+                clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) =>
+                {
+                    return true;
+                };
                 HttpClient client = new HttpClient(clientHandler);
                 var result = await client.SendAsync(request);
                 var contentBody = await result.Content.ReadAsStringAsync();
@@ -81,33 +92,34 @@ namespace DatingAppLicencjat
                     newPost.username = post.fullName;
                     newPost.title = post.postTitle;
                     newPost.city = post.postCity;
+                    newPost.user_photo_base64 = post.user_photo_base64;
                     postList.Add(newPost);
                 }
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
-
             }
             finally
             {
-                postRecyclerView.SetLayoutManager(new Android.Support.V7.Widget.LinearLayoutManager(postRecyclerView.Context));
+                postRecyclerView.SetLayoutManager(
+                    new Android.Support.V7.Widget.LinearLayoutManager(postRecyclerView.Context));
                 postAdapter = new PostAdapter(postList);
                 postRecyclerView.SetAdapter(postAdapter);
                 Constants.posts = postList;
                 postAdapter.ItemClick += PostAdapter_ItemClick;
             }
-            
-
         }
 
         private void PostAdapter_ItemClick(object sender, Adapter1ClickEventArgs e)
         {
             postModel clickedPost = new postModel();
+            clickedPost.creatorId = postList[e.Position].creatorId;
             clickedPost.city = postList[e.Position].city;
             clickedPost.description = postList[e.Position].description;
             clickedPost.username = postList[e.Position].username;
             clickedPost.id = postList[e.Position].id;
+            Constants.user_photo_in_view_post = postList[e.Position].user_photo_base64;
             int postId = postList[e.Position].id;
             int ownerId = postList[e.Position].creatorId;
             Intent intent = new Intent(this, typeof(ViewPostActivity));

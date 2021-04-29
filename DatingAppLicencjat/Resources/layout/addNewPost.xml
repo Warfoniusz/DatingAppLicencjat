@@ -8,11 +8,12 @@
     <android.support.v7.widget.Toolbar
 
              android:id="@+id/toolbar"
-             android:background="@color/colorPrimaryDark"
+             android:background="@color/colorPrimary"
              android:layout_width="match_parent"
              android:layout_height="?android:attr/actionBarSize"/>
 
     <LinearLayout
+        android:background="#F6F0ED"
         android:padding="16dp"
         android:orientation="vertical"
         android:layout_width="match_parent"

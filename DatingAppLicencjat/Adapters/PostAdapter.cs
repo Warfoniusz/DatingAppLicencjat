@@ -1,4 +1,5 @@
-﻿using Android.Support.V7.Widget;
+﻿using Android.Graphics;
+using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using DatingAppLicencjat.Models;
@@ -21,7 +22,6 @@ namespace DatingAppLicencjat.Adapters
         // Create new views (invoked by the layout manager)
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
-
             //Setup your layout here
             View itemView = null;
             itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.userPost, parent, false);
@@ -40,13 +40,24 @@ namespace DatingAppLicencjat.Adapters
             holder.usernameTextView.Text = item.username;
             holder.postBodyTextView.Text = item.title;
             holder.cityTextView.Text = item.city;
+            if (item.acceptanceStatus == "waiting")
+            {
+                holder.followedPost.SetBackgroundColor(Color.ParseColor("#ebde34"));
+            }
+            else if (item.acceptanceStatus == "denied")
+            {
+                holder.followedPost.SetBackgroundColor(Color.ParseColor("#fc0330"));
+            }
+            else if (item.acceptanceStatus == "accepted")
+            {
+                holder.followedPost.SetBackgroundColor(Color.ParseColor("#03fc5a"));
+            }
         }
 
         public override int ItemCount => items.Count;
 
         void OnClick(Adapter1ClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(Adapter1ClickEventArgs args) => ItemLongClick?.Invoke(this, args);
-
     }
 
     public class Adapter1ViewHolder : RecyclerView.ViewHolder
@@ -55,16 +66,20 @@ namespace DatingAppLicencjat.Adapters
         public TextView postBodyTextView { get; set; }
         public TextView cityTextView { get; set; }
         public ImageView postImageView { get; set; }
+        public CardView followedPost { get; set; }
 
         public Adapter1ViewHolder(View itemView, Action<Adapter1ClickEventArgs> clickListener,
-                            Action<Adapter1ClickEventArgs> longClickListener) : base(itemView)
+            Action<Adapter1ClickEventArgs> longClickListener) : base(itemView)
         {
+            followedPost = itemView.FindViewById<CardView>(Resource.Id.postInViewed);
             usernameTextView = itemView.FindViewById<TextView>(Resource.Id.userPostNickname);
             postBodyTextView = itemView.FindViewById<TextView>(Resource.Id.userPostDescription);
             cityTextView = itemView.FindViewById<TextView>(Resource.Id.userPostCity);
             postImageView = itemView.FindViewById<ImageView>(Resource.Id.postPhoto);
-            itemView.Click += (sender, e) => clickListener(new Adapter1ClickEventArgs { View = itemView, Position = AdapterPosition });
-            itemView.LongClick += (sender, e) => longClickListener(new Adapter1ClickEventArgs { View = itemView, Position = AdapterPosition });
+            itemView.Click += (sender, e) => clickListener(new Adapter1ClickEventArgs
+                {View = itemView, Position = AdapterPosition});
+            itemView.LongClick += (sender, e) => longClickListener(new Adapter1ClickEventArgs
+                {View = itemView, Position = AdapterPosition});
         }
     }
 
@@ -73,6 +88,4 @@ namespace DatingAppLicencjat.Adapters
         public View View { get; set; }
         public int Position { get; set; }
     }
-
-
 }

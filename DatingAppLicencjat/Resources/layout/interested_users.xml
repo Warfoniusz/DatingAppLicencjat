@@ -15,7 +15,8 @@
         android:layout_height="match_parent">
 
         <TextView
-                android:text="Obserwowane ogłoszenia"
+                android:id="@+id/post_name_in_interested_users"
+                android:text="Zainteresowani tym ogłoszeniem"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -34,7 +35,7 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/postRecycleViewOnWatched"
+            android:id="@+id/post_recycler_on_interested_users"
             android:scrollbars="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"

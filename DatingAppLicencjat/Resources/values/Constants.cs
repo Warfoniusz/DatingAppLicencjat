@@ -14,6 +14,9 @@ namespace DatingAppLicencjat.Resources.values
 {
     public static class Constants
     {
+        public static string user_photo_in_view_post;
+        public static List<string> base64photosInInterested;
+
         public static List<postModel> posts;
 
         public static string fullname = "";
